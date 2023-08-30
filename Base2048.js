@@ -75,6 +75,8 @@
                 var x = elem.attr('x')
                 var y = elem.attr('y')
                 var nbr = elem.attr('nbr')
+
+                get_destination()
             })
             
         }
