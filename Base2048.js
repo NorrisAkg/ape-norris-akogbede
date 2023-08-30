@@ -41,7 +41,6 @@
         }
 
         function get_destination (x, y, direction){
-            var elements = $('[x="' + x + '"][y="' + y + '"][nbr= "' + n + '"]');
             switch(direction) {
                 case ('up'):
                     y++
@@ -56,7 +55,7 @@
             return $('[x="' + x + '"][y="' + y + '"][nbr= "' + n + '"]');
         }
 
-        function move_case(x, y, n, direction) {
+        function move_case(x, y, n) {
             var elem = $('[x="' + x + '"][y="' + y + '"][nbr= "' + n + '"]');
             var destination = $('[x="' + x + '"][y="' + y + '"][nbr= "' + n + '"]');
             var destination = get_destination();
@@ -70,24 +69,32 @@
         }
 
         function move_cases () {
+            var elements = $("td");
 
+            elements.forEach(elem => {
+                var x = elem.attr('x')
+                var y = elem.attr('y')
+                var nbr = elem.attr('nbr')
+            })
+            
         }
 
         // fonction de gestion des évenements (appuie de touches)
         $('html').keydown(function(event) {
             switch (event['key']) {
                 case 'ArrowLeft':
+                    move_cases()
                     // var elements = 
-                    move_case(0, 1, 4)
+                    // move_case(0, 1, 4)
                     let range = [0, 1, 2, 3]
+                    // insérer algo move left
+
                     // var elem = $('[x="' + x + '"][y="' + y + '"][nbr=0]');
-                    generate_case(1)
                     // les cases remplies se déplacent vers la gauche
                     // génération d'une nouvelle case remplie de 2 ou 4
                     // si la destination de la case qui bouge contient le même chiffre (2 ou 4 ou 8)
                         // l'additionner
                         //sion la placer à côté
-                    // insérer algo move left
                     console.log("Left");
                     break;
                 case 'ArrowUp':
